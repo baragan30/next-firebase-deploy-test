@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "test": "next-deployment-test",
+    "friendlyeats-codelab": "next-deployment-test"
+  },
+  "targets": {},
+  "etags": {}
+}
