@@ -48,9 +48,9 @@ export default function Restaurant({
   };
 
   useEffect(() => {
-    return getRestaurantSnapshotById(id, (data) => {
-      setRestaurantDetails(data);
-    });
+    return getRestaurantSnapshotById(id, 
+      setRestaurantDetails
+    );
   }, [id]);
 
   return (

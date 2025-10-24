@@ -53,6 +53,7 @@ const updateWithRating = async (
 };
 
 export async function addReviewToRestaurant(db, restaurantId, review) {
+  console.log("addReviewToRestaurant:", restaurantId, review);
         if (!restaurantId) {
                 throw new Error("No restaurant ID has been provided.");
         }
@@ -99,6 +100,7 @@ function applyQueryFilters(q, { category, city, price, sort }) {
 }
 
 export async function getRestaurants(db = db, filters = {}) {
+  console.log("getRestaurants:", filters);
   let q = query(collection(db, "restaurants"));
 
   q = applyQueryFilters(q, filters);
@@ -114,6 +116,7 @@ export async function getRestaurants(db = db, filters = {}) {
 }
 
 export function getRestaurantsSnapshot(cb, filters = {}) {
+  console.log("getRestaurantsSnapshot:", filters);
   if (typeof cb !== "function") {
     console.log("Error: The callback parameter is not a function");
     return;
@@ -137,6 +140,7 @@ export function getRestaurantsSnapshot(cb, filters = {}) {
 }
 
 export async function getRestaurantById(db, restaurantId) {
+  console.log("getRestaurantById:", restaurantId);
   if (!restaurantId) {
     console.log("Error: Invalid ID received: ", restaurantId);
     return;
@@ -150,10 +154,12 @@ export async function getRestaurantById(db, restaurantId) {
 }
 
 export function getRestaurantSnapshotById(restaurantId, cb) {
+  console.log("getRestaurantSnapshotById:", restaurantId);
   return;
 }
 
 export async function getReviewsByRestaurantId(db, restaurantId) {
+  console.log("getReviewsByRestaurantId:", restaurantId);
   if (!restaurantId) {
     console.log("Error: Invalid restaurantId received: ", restaurantId);
     return;
@@ -176,6 +182,7 @@ export async function getReviewsByRestaurantId(db, restaurantId) {
 }
 
 export function getReviewsSnapshotByRestaurantId(restaurantId, cb) {
+  console.log("getReviewsSnapshotByRestaurantId:", restaurantId);
   if (!restaurantId) {
     console.log("Error: Invalid restaurantId received: ", restaurantId);
     return;
@@ -199,6 +206,7 @@ export function getReviewsSnapshotByRestaurantId(restaurantId, cb) {
 }
 
 export async function addFakeRestaurantsAndReviews() {
+  console.log("Adding fake restaurants and reviews...");
   const data = await generateFakeRestaurantsAndReviews();
   for (const { restaurantData, ratingsData } of data) {
     try {
