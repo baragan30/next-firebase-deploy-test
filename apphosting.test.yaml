@@ -1,0 +1,16 @@
+runConfig:
+  env:
+  - variable: NEXT_PUBLIC_FIREBASE_API_KEY
+    value: "AIzaSyDQHgSf-tm7oUHoYbKDBNf-dLbB9cqI7LM"
+  - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+    value: "next-deployment-test.firebaseapp.com"
+  - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+    value: "next-deployment-test"
+  - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+    value: "next-deployment-test.firebasestorage.app" 
+  - variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+    value: "28407699093"    
+  - variable: NEXT_PUBLIC_FIREBASE_APP_ID
+    value: "1:28407699093:web:458c4575ac11936425ed9c"
+  - variable: NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
+    value: "G-80V9PW5R31"
