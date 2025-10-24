@@ -4,6 +4,7 @@ import "server-only";
 
 import { cookies } from "next/headers";
 import { initializeServerApp, initializeApp } from "firebase/app";
+import { firebaseConfig } from "@/src/lib/firebase/const.js";
 
 import { getAuth } from "firebase/auth";
 
@@ -17,7 +18,7 @@ export async function getAuthenticatedAppForUser() {
   // other affordances for use in server environments.
   const firebaseServerApp = initializeServerApp(
     // https://github.com/firebase/firebase-js-sdk/issues/8863#issuecomment-2751401913
-    initializeApp(),
+    initializeApp(firebaseConfig),
     {
       authIdToken,
     }
@@ -26,5 +27,5 @@ export async function getAuthenticatedAppForUser() {
   const auth = getAuth(firebaseServerApp);
   await auth.authStateReady();
 
-  return { firebaseServerApp, currentUser: auth.currentUser };
+  return {  firebaseServerApp, currentUser: auth.currentUser };
 }
