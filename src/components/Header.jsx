@@ -8,6 +8,7 @@ import {
 } from "@/src/lib/firebase/auth.js";
 import { addFakeRestaurantsAndReviews } from "@/src/lib/firebase/firestore.js";
 import { setCookie, deleteCookie } from "cookies-next";
+import { firebaseConfig } from "../lib/firebase/const";
 
 function useUserSession(initialUser) {
   useEffect(() => {
@@ -40,6 +41,14 @@ export default function Header({ initialUser }) {
     event.preventDefault();
     signInWithGoogle();
   };
+
+  useEffect(() => {
+    const interval = setInterval(async () => {
+      console.log(firebaseConfig);
+    }, 1000); 
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <header>
